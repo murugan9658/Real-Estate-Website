@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { IoMdArrowDropdown, IoMdMenu, IoMdClose } from "react-icons/io";
@@ -14,16 +14,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const [currentPath, setCurrentPath] = useState(window.location.pathname);
-
-  useEffect(() => {
-    const onLocationChange = () => {
-      setCurrentPath(window.location.pathname);
-    };
-
-    window.addEventListener("popstate", onLocationChange);
-    return () => window.removeEventListener("popstate", onLocationChange);
-  }, []);
+  const location = useLocation(); // ✅ useLocation instead of custom tracking
 
   const toggleDropdown = (name) => {
     setOpenDropdown((prev) => (prev === name ? "" : name));
@@ -42,7 +33,6 @@ const Navbar = () => {
 
   const navBg = isScrolled ? "bg-black shadow-md text-white" : "bg-transparent text-white";
 
-  // New helper: navigate to a page and scroll section
   const navigateToSection = (page, section) => {
     closeDropdown();
     setMobileMenuOpen(false);
@@ -64,7 +54,7 @@ const Navbar = () => {
           <li className="relative flex items-center justify-center gap-1 ">
             <button
               onClick={() => navigateToSection("/", "")}
-              className={`${currentPath === "/" ? "text-cyan-500 font-bold" : ""}`}
+              className={`${location.pathname === "/" ? "text-cyan-500 font-bold" : ""}`}
             >
               Home
             </button>
@@ -100,7 +90,7 @@ const Navbar = () => {
           <li className="relative flex items-center justify-center gap-1 ">
             <button
               onClick={() => navigateToSection("/mortgage", "")}
-              className={`${currentPath === "/mortgage" ? "text-cyan-500 font-bold" : ""}`}
+              className={`${location.pathname === "/mortgage" ? "text-cyan-500 font-bold" : ""}`}
             >
               Mortgage
             </button>
@@ -118,7 +108,7 @@ const Navbar = () => {
                   variants={dropDownVariant}
                   transition={{ duration: 0.4 }}
                 >
-                  {[ "mortgagebenefits", "calculator", ].map((section) => (
+                  {["mortgagebenefits", "calculator"].map((section) => (
                     <button
                       key={section}
                       onClick={() => navigateToSection("/mortgage", section)}
@@ -136,7 +126,7 @@ const Navbar = () => {
           <li>
             <button
               onClick={() => navigateToSection("/property", "")}
-              className={`${currentPath === "/property" ? "text-cyan-500 font-bold" : ""}`}
+              className={`${location.pathname === "/property" ? "text-cyan-500 font-bold" : ""}`}
             >
               Property
             </button>
@@ -146,7 +136,7 @@ const Navbar = () => {
           <li>
             <button
               onClick={() => navigateToSection("/map", "")}
-              className={`${currentPath === "/map" ? "text-cyan-500 font-bold" : ""}`}
+              className={`${location.pathname === "/map" ? "text-cyan-500 font-bold" : ""}`}
             >
               Map
             </button>
@@ -157,7 +147,7 @@ const Navbar = () => {
       {/* Login */}
       <div>
         <button onClick={() => navigateToSection("/login", "")}>
-          <span className="text-white hidden md:flex font-bold border-2  px-2 rounded-lg cursor-pointer text-lg hover:text-green-500 hover:underline transition duration-300">
+          <span className="text-white hidden md:flex font-bold border-2 px-2 rounded-lg cursor-pointer text-lg hover:text-green-500 hover:underline transition duration-300">
             Sign In
           </span>
         </button>
@@ -187,10 +177,10 @@ const Navbar = () => {
             <button onClick={() => navigateToSection("/", "")} className="py-2 w-full transition duration-300 hover:underline">
               Home
             </button>
-            <button onClick={() => navigateToSection("/mortgage", "")} className="py-2 w-full transition duration-300 hover:underline ">
+            <button onClick={() => navigateToSection("/mortgage", "")} className="py-2 w-full transition duration-300 hover:underline">
               Mortgage
             </button>
-            <button onClick={() => navigateToSection("/property", "")} className="py-2 w-full transition duration-300 hover:underline ">
+            <button onClick={() => navigateToSection("/property", "")} className="py-2 w-full transition duration-300 hover:underline">
               Property
             </button>
             <button onClick={() => navigateToSection("/map", "")} className="py-2 w-full transition duration-300 hover:underline">
