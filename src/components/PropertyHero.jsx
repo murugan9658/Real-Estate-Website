@@ -23,11 +23,17 @@ const PropertyHero = () => {
   return (
   
         <div className='w-full h-screen relative items-center justify-center'>
-            <div className='absolute w-full h-full  z-20'>
+            <motion.div 
+              initial={{ scale: 1.1, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className='absolute w-full h-full  z-20'>
+
                  <img src="/images/propertylandingpic.jpg"
                   alt="landingpicture"
                   className=' absolute inset-0 w-full h-full object-cover ' />
-            </div>
+
+            </motion.div>
              <div className="absolute inset-0 bg-black/70 z-20"></div>
 
             <div className='absolute inset-0 z-30 flex flex-col space-y-4 justify-center items-center text-white text-center px-6'>
@@ -39,7 +45,7 @@ const PropertyHero = () => {
                  whileInView="visible" 
                 custom={1}
                 viewport={{ once: true }}               
-                className='text-4xl  text-gray-200 text-start font-bold '> 
+                className='text-4xl  text-gray-200 md:text-start font-bold '> 
                  Get Your 
                     <span className='text-green-600 font-bold block text-6xl '>
                         Dream House
