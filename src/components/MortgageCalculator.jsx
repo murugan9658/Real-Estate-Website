@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { PieChart, Pie, Cell, Legend, Tooltip } from "recharts";
 import { motion } from "framer-motion";
 
@@ -47,45 +47,43 @@ const MortgageCalculator = () => {
     ]);
   };
 
-  const formContainer = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.2, // Delay between each field
-    },
-  },
-};
-
-const formItem = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.8 },
-  },
-};
-
   const COLORS = ["#4ade80", "#60a5fa", "#facc15", "#f87171", "#a78bfa"];
-
-  // Calculate the total payment from the data
   const totalPayment = data.reduce((acc, cur) => acc + cur.value, 0);
 
+  const formContainer = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const formItem = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.8 },
+    },
+  };
+
   return (
-    <div className="min-h-screen bg-stone-300 flex items-center justify-center  md:p-4 p-2">
+    <div className="min-h-screen bg-stone-300 flex items-center justify-center md:p-4 p-2">
       <div className="max-w-7xl w-full bg-gray-100 p-8 rounded-2xl shadow-2xl">
         <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
           🏠 Mortgage Calculator
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-          {/* Left: Calculator Form */}
+          {/* Left Column: Form */}
           <div>
             <motion.div
-            className="grid grid-cols-1 gap-6 mb-6"
-            variants={formContainer}
-            initial="hidden"
-            animate="visible"
->
+              className="grid grid-cols-1 gap-6 mb-6"
+              variants={formContainer}
+              initial="hidden"
+              animate="visible"
+            >
               {[
                 { label: "Property Price (₹)", name: "price" },
                 { label: "Down Payment (₹)", name: "downPayment" },
@@ -94,7 +92,7 @@ const formItem = {
                 { label: "Property Tax (₹/year)", name: "tax" },
                 { label: "Insurance (₹/year)", name: "insurance" },
               ].map((field) => (
-                <motion.div key={field.name}  variants={formItem}>
+                <motion.div key={field.name} variants={formItem}>
                   <label className="block text-sm font-medium text-gray-600 mb-1">
                     {field.label}
                   </label>
@@ -107,7 +105,7 @@ const formItem = {
                   />
                 </motion.div>
               ))}
-            </motion.div >
+            </motion.div>
 
             <button
               onClick={calculate}
@@ -117,12 +115,12 @@ const formItem = {
             </button>
           </div>
 
-          {/* Right: Pie Chart */}
+          {/* Right Column: Pie Chart & Legend */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col  items-center"
+            className="flex flex-col items-center"
           >
             <PieChart width={500} height={400}>
               <Pie
@@ -131,15 +129,23 @@ const formItem = {
                 cy="50%"
                 outerRadius={140}
                 dataKey="value"
-                label
                 isAnimationActive
               >
                 {data.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index % COLORS.length]}
+                  />
                 ))}
               </Pie>
               <Tooltip
-                contentStyle={{ backgroundColor: "transparent", border: "none" }}
+                contentStyle={{
+                  backgroundColor: "#fff",
+                  border: "1px solid #ccc",
+                  padding: "3px",
+                  borderRadius: "10px", 
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+                }}
                 formatter={(value) =>
                   new Intl.NumberFormat("en-IN", {
                     style: "currency",
@@ -148,10 +154,39 @@ const formItem = {
                   }).format(value)
                 }
               />
-              <Legend />
             </PieChart>
 
-            {/* Display Total Payment Below the Pie */}
+            {/* Only show legend with name + color (no amount) */}
+            <motion.ul
+              className="mt-2 grid grid-cols-1  md:grid-cols-3 gap-2 space-y-2"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: { staggerChildren: 0.2 },
+                },
+              }}
+            >
+              {data.map((item, index) => (
+                <motion.li
+                  key={item.name}
+                  variants={{
+                    hidden: { opacity: 0, x: -20 },
+                    visible: { opacity: 1, x: 0 },
+                  }}
+                  className="text-gray-700 font-medium flex items-center"
+                >
+                  <span
+                    className="w-4 h-4 mr-2 inline-block rounded-full"
+                    style={{ backgroundColor: COLORS[index % COLORS.length] }}
+                  ></span>
+                  {item.name}
+                </motion.li>
+              ))}
+            </motion.ul>
+
+            {/* Total payment (optional) */}
             <div className="mt-4 text-lg font-semibold text-gray-700">
               Total Payment:{" "}
               {new Intl.NumberFormat("en-IN", {
