@@ -60,7 +60,7 @@ const places = [
 
 const SouthIndiaMap = () => {
   return (
-    <div className="relative w-full  h-screen py-15 px-3">
+    <div className="relative w-full items-center  md:h-screen py-15 px-3">
 
       {/* 🔽 Background image (z-0) */}
         <div className="absolute inset-0 z-0">
@@ -79,7 +79,8 @@ const SouthIndiaMap = () => {
           <MapContainer
             center={[11.5, 78.5]}
             zoom={7}
-            className="h-[90vh] w-full rounded-2xl max-w-5xl mx-auto"
+            scrollWheelZoom={false}
+            className=" h-[90vh]   w-full rounded-2xl max-w-5xl mx-auto"
           >
             <TileLayer
               attribution='&copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
