@@ -174,20 +174,25 @@ const Navbar = () => {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
           >
-            <button onClick={() => navigateToSection("/", "")} className="py-2 w-full transition duration-300 hover:underline">
+            <button onClick={() => navigateToSection("/", "")} 
+            className="py-2 w-full transition duration-300 hover:underline">
               Home
             </button>
-            <button onClick={() => navigateToSection("/mortgage", "")} className="py-2 w-full transition duration-300 hover:underline">
+            <button onClick={() => navigateToSection("/mortgage", "")} 
+            className="py-2 w-full transition duration-300 hover:underline">
               Mortgage
             </button>
-            <button onClick={() => navigateToSection("/property", "")} className="py-2 w-full transition duration-300 hover:underline">
+            <button onClick={() => navigateToSection("/property", "")} 
+            className="py-2 w-full transition duration-300 hover:underline">
               Property
             </button>
-            <button onClick={() => navigateToSection("/map", "")} className="py-2 w-full transition duration-300 hover:underline">
+            <button onClick={() => navigateToSection("/map", "")} 
+            className="py-2 w-full transition duration-300 hover:underline">
               Map
             </button>
-            <button onClick={() => navigateToSection("/login", "")} className="py-2 w-full transition duration-300 hover:underline">
-              Login
+            <button onClick={() => navigateToSection("/login", "")}
+             className="py-2 w-full transition duration-300 hover:underline">
+              Sign In
             </button>
           </motion.div>
         )}
