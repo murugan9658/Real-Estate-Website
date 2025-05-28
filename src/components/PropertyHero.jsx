@@ -45,7 +45,7 @@ const PropertyHero = () => {
                  whileInView="visible" 
                 custom={1}
                 viewport={{ once: true }}               
-                className='text-3xl md:text-4xl   text-gray-200 md:text-start font-bold '> 
+                className='text-3xl md:text-4xl font-playfair  text-gray-200 md:text-start font-bold '> 
                  Get Your 
                     <span className='text-green-600 font-bold block text-4xl md:text-6xl '>
                         Dream House
@@ -66,7 +66,7 @@ const PropertyHero = () => {
                  whileInView="visible" 
                 custom={3}
                 viewport={{ once: true }} 
-                className="text-sm md:text-md ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam eligendi in cum voluptatum est <br />temporibus ipsum ipsa porro expedita laborum.</motion.p>
+                className="text-sm md:text-md font-dancing">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam eligendi in cum voluptatum est <br />temporibus ipsum ipsa porro expedita laborum.</motion.p>
                 <ScrollLink to="propertysection" smooth={true}  duration={500} offset={-70} >
                     <motion.button
                     variants ={scaleInVariant}
@@ -74,7 +74,7 @@ const PropertyHero = () => {
                     whileInView="visible" 
                     custom={3}
                     viewport={{ once: true }} 
-                    className="text-lg py-1 px-2 bg-blue-500 rounded-lg cursor-pointer hover:bg-blue-700 hover:text-white transition duration-300 text-gray-100">Get Start</motion.button >
+                    className="text-lg py-1 px-2 bg-blue-500 rounded-lg font-playfair cursor-pointer hover:bg-blue-700 hover:text-white transition duration-300 text-gray-100">Get Start</motion.button >
                 </ScrollLink>
             </div>
 

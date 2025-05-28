@@ -13,7 +13,7 @@ const PropertySection = () => {
   return (
     <div className="min-h-screen max-w-6xl mx-auto shadow-black shadow-lg bg-gray-100 p-6">
       <h1 className="text-3xl text-center font-bold mb-6">
-        <a className="py-1 px-2 bg-cyan-500 rounded-lg text-white">Find Your Property</a>
+        <a className="py-1 px-2 bg-cyan-500 rounded-lg font-playfair text-white">Find Your Property</a>
       </h1>
 
       <div className="flex items-center justify-center mb-4">
