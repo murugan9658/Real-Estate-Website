@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { PieChart, Pie, Cell, Legend, Tooltip } from "recharts";
+import { useState, useEffect } from "react";
+import { PieChart, Pie, Cell, Tooltip } from "recharts";
 import { motion } from "framer-motion";
 
 const MortgageCalculator = () => {
@@ -19,6 +19,20 @@ const MortgageCalculator = () => {
     tax: 15000,
     insurance: 10000,
   });
+
+  const [chartWidth, setChartWidth] = useState(500);
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  useEffect(() => {
+    const updateWidth = () => {
+      const width = window.innerWidth;
+      if (width < 600) setChartWidth(width * 0.9);
+      else setChartWidth(500);
+    };
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
 
   const handleChange = (e) => {
     setInputs({ ...inputs, [e.target.name]: +e.target.value });
@@ -45,6 +59,7 @@ const MortgageCalculator = () => {
       { name: "Tax", value: totalTax },
       { name: "Insurance", value: totalInsurance },
     ]);
+    setActiveIndex(null);
   };
 
   const COLORS = ["#4ade80", "#60a5fa", "#facc15", "#f87171", "#a78bfa"];
@@ -93,11 +108,16 @@ const MortgageCalculator = () => {
                 { label: "Insurance (₹/year)", name: "insurance" },
               ].map((field) => (
                 <motion.div key={field.name} variants={formItem}>
-                  <label className="block text-sm font-medium text-gray-600 mb-1">
+                  <label
+                    htmlFor={field.name}
+                    className="block text-sm font-medium text-gray-600 mb-1"
+                  >
                     {field.label}
                   </label>
                   <input
+                    id={field.name}
                     type="number"
+                    min={0}
                     name={field.name}
                     value={inputs[field.name]}
                     onChange={handleChange}
@@ -122,43 +142,49 @@ const MortgageCalculator = () => {
             transition={{ duration: 0.5 }}
             className="flex flex-col items-center"
           >
-            <PieChart width={500} height={400}>
-              <Pie
-                data={data}
-                cx="50%"
-                cy="50%"
-                outerRadius={140}
-                dataKey="value"
-                isAnimationActive
-              >
-                {data.map((entry, index) => (
-                  <Cell
+            <div className="overflow-x-auto max-w-full flex justify-center items-center">
+              <PieChart width={chartWidth} height={400}>
+                <Pie
+                  data={data}
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={140}
+                  dataKey="value"
+                  isAnimationActive
+                  onClick={(_, index) => setActiveIndex(index)}
+                >
+                  {data.map((entry, index) => (
+                    <Cell
                     key={`cell-${index}`}
                     fill={COLORS[index % COLORS.length]}
-                  />
-                ))}
-              </Pie>
-              <Tooltip
-                contentStyle={{
-                  backgroundColor: "#fff",
-                  border: "1px solid #ccc",
-                  padding: "3px",
-                  borderRadius: "10px", 
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-                }}
-                formatter={(value) =>
-                  new Intl.NumberFormat("en-IN", {
-                    style: "currency",
-                    currency: "INR",
-                    minimumFractionDigits: 0,
-                  }).format(value)
-                }
-              />
-            </PieChart>
+                    stroke={index === activeIndex ? "#000" : "none"}
+                    strokeWidth={index === activeIndex ? 2 : 1}
+                    cursor="pointer"
+                    />
+                  ))}
+                </Pie>
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: "#fff",
+                    border: "1px solid #ccc",
+                    padding: "3px",
+                    borderRadius: "10px",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+                  }}
+                  formatter={(value) =>
+                    new Intl.NumberFormat("en-IN", {
+                      style: "currency",
+                      currency: "INR",
+                      minimumFractionDigits: 0,
+                    }).format(value)
+                  }
+                />
+              </PieChart>
+            </div>
 
-            {/* Only show legend with name + color (no amount) */}
+            {/* Legend */}
             <motion.ul
-              className="mt-2 grid grid-cols-1  md:grid-cols-3 gap-2 space-y-2"
+              className="mt-2 grid grid-cols-1 md:grid-cols-3 gap-2 space-y-2"
               initial="hidden"
               animate="visible"
               variants={{
@@ -186,7 +212,7 @@ const MortgageCalculator = () => {
               ))}
             </motion.ul>
 
-            {/* Total payment (optional) */}
+            {/* Total payment */}
             <div className="mt-4 text-lg font-semibold text-gray-700">
               Total Payment:{" "}
               {new Intl.NumberFormat("en-IN", {
