@@ -44,12 +44,12 @@ const Navbar = () => {
       {/* Logo */}
       <div className="flex items-center gap-2">
         <img className="w-10" src="logo.svg" alt="logo" />
-        <h1 className="text-2xl font-bold text-white">Retro Real Estate</h1>
+        <h1 className="text-2xl font-bold font-playfair text-white">Retro Real Estate</h1>
       </div>
 
       {/* Nav Items */}
       <div>
-        <ul className="hidden md:flex items-center gap-2 md:gap-6 md:text-lg text-md text-orange-500 md:font-bold">
+        <ul className="hidden md:flex items-center gap-2  md:gap-6 md:text-lg text-md text-orange-500 md:font-bold">
           {/* Home Dropdown */}
           <li className="relative flex items-center justify-center gap-1 ">
             <button
@@ -147,7 +147,7 @@ const Navbar = () => {
       {/* Login */}
       <div>
         <button onClick={() => navigateToSection("/login", "")}>
-          <span className="text-white hidden md:flex font-bold border-2 px-2 rounded-lg cursor-pointer text-lg hover:text-green-500 hover:underline transition duration-300">
+          <span className="text-white hidden md:flex font-bold font-playfair border-2 px-2 rounded-lg cursor-pointer text-lg hover:text-green-500 hover:underline transition duration-300">
             Sign In
           </span>
         </button>
@@ -168,7 +168,7 @@ const Navbar = () => {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            className="absolute top-full left-0 w-full bg-black/80 text-white flex flex-col items-center text-center px-6 py-4 gap-2 md:hidden z-40"
+            className="absolute top-full left-0 w-full bg-black/80 text-white font-playfair flex flex-col items-center text-center px-6 py-4 gap-2 md:hidden z-40"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}

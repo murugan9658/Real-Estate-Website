@@ -86,7 +86,7 @@ const MortgageCalculator = () => {
   return (
     <div className="min-h-screen bg-stone-300 flex items-center justify-center md:p-4 p-2">
       <div className="max-w-7xl w-full bg-gray-100 p-8 rounded-2xl shadow-2xl">
-        <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
+        <h2 className="text-3xl font-bold text-center font-playfair mb-8 text-gray-800">
           🏠 Mortgage Calculator
         </h2>
 
@@ -129,7 +129,7 @@ const MortgageCalculator = () => {
 
             <button
               onClick={calculate}
-              className="w-full bg-blue-600 text-white font-semibold py-2 rounded hover:bg-blue-700 transition"
+              className="w-full bg-blue-600 font-playfair text-white font-semibold py-2 rounded hover:bg-blue-700 transition"
             >
               Calculate
             </button>
@@ -213,7 +213,7 @@ const MortgageCalculator = () => {
             </motion.ul>
 
             {/* Total payment */}
-            <div className="mt-4 text-lg font-semibold text-gray-700">
+            <div className="mt-4 text-lg font-playfair font-semibold text-gray-700">
               Total Payment:{" "}
               {new Intl.NumberFormat("en-IN", {
                 style: "currency",

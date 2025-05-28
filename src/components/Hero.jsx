@@ -92,7 +92,7 @@ const HeroSection = () => {
           <motion.h1
             variants={item}
             custom={0}
-            className="md:text-6xl text-4xl font-semibold text-white hover:scale-105 transition duration-500"
+            className="md:text-6xl font-playfair text-4xl font-semibold text-white hover:scale-105 transition duration-500"
           >
             Retro Real Estate Management Pvt Ltd
           </motion.h1>
@@ -100,7 +100,7 @@ const HeroSection = () => {
           <motion.p
             variants={item}
             custom={1}
-            className="md:text-3xl text-2xl font-semibold text-white italic transition duration-500 hover:scale-105"
+            className="md:text-3xl font-dancing text-2xl font-semibold text-white italic transition duration-500 hover:scale-105"
           >
             Discover luxury properties in your favorite locations.
           </motion.p>
@@ -109,7 +109,7 @@ const HeroSection = () => {
             <motion.button
               variants={item}
               custom={2}
-              className="py-1 px-4 md:text-2xl text-lg text-white border border-white hover:border-black/80 hover:font-semibold transition cursor-pointer duration-300 hover:scale-105 hover:bg-white hover:text-black rounded-lg"
+              className="py-1 px-4 md:text-2xl text-lg font-playfair text-white border border-white hover:border-black/80 hover:font-semibold transition cursor-pointer duration-300 hover:scale-105 hover:bg-white hover:text-black rounded-lg"
             >
               Explore
             </motion.button>

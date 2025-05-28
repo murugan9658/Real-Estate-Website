@@ -45,7 +45,7 @@ const MortgageHero = () => {
         animate="visible"
       >
         <motion.h1
-          className="text-4xl font-semibold text-white"
+          className="text-4xl font-semibold font-playfair text-white"
           variants={itemVariants}
         >
           Mortgage Calculator
@@ -72,7 +72,7 @@ const MortgageHero = () => {
             duration={500}
             offset={-70}
           >
-            <button className="py-1 px-4 rounded-lg border-2 capitalize md:text-2xl text-lg text-white border-white hover:bg-white hover:text-black transition duration-300">
+            <button className="py-1 px-4 rounded-lg border-2 font-playfair capitalize md:text-2xl text-lg text-white border-white hover:bg-white hover:text-black transition duration-300">
               calculate
             </button>
           </ScrollLink>
@@ -82,7 +82,7 @@ const MortgageHero = () => {
             duration={500}
             offset={-70}
           >
-            <button className="py-1 px-4 rounded-lg border-2 capitalize md:text-2xl text-lg text-white border-white hover:bg-white hover:text-black transition duration-300">
+            <button className="py-1 px-4 rounded-lg border-2 font-playfair capitalize md:text-2xl text-lg text-white border-white hover:bg-white hover:text-black transition duration-300">
               learn...
             </button>
           </ScrollLink>
