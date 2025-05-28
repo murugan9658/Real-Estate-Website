@@ -78,7 +78,7 @@ const PropertyHero = () => {
                 </ScrollLink>
             </div>
 
-            <div className="absolute bottom-10 z-40 flex justify-center mt-4 w-full">
+            <div className="absolute bottom-10 z-40 flex justify-center mt-2 w-full">
                <DotLoader />
             </div>
         </div>
