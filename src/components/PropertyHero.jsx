@@ -45,9 +45,9 @@ const PropertyHero = () => {
                  whileInView="visible" 
                 custom={1}
                 viewport={{ once: true }}               
-                className='text-4xl  text-gray-200 md:text-start font-bold '> 
+                className='text-3xl md:text-4xl   text-gray-200 md:text-start font-bold '> 
                  Get Your 
-                    <span className='text-green-600 font-bold block text-6xl '>
+                    <span className='text-green-600 font-bold block text-4xl md:text-6xl '>
                         Dream House
                     </span>
                 </motion.h1>
@@ -58,7 +58,7 @@ const PropertyHero = () => {
                  whileInView="visible" 
                 custom={2}
                 viewport={{ once: true }} 
-                className="text-3xl ">Find the perfect property for you and your family</motion.p>
+                className="text-2xl md:text-3xl ">Find the perfect property for you and your family</motion.p>
 
                 <motion.p 
                  variants ={scaleInVariant}
@@ -66,7 +66,7 @@ const PropertyHero = () => {
                  whileInView="visible" 
                 custom={3}
                 viewport={{ once: true }} 
-                className="text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam eligendi in cum voluptatum est <br />temporibus ipsum ipsa porro expedita laborum.</motion.p>
+                className="text-sm md:text-md ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam eligendi in cum voluptatum est <br />temporibus ipsum ipsa porro expedita laborum.</motion.p>
                 <ScrollLink to="propertysection" smooth={true}  duration={500} offset={-70} >
                     <motion.button
                     variants ={scaleInVariant}
@@ -78,7 +78,7 @@ const PropertyHero = () => {
                 </ScrollLink>
             </div>
 
-            <div className="absolute bottom-10 z-40 flex justify-center w-full">
+            <div className="absolute bottom-10 z-40 flex justify-center mt-4 w-full">
                <DotLoader />
             </div>
         </div>
