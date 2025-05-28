@@ -7,7 +7,7 @@ const About = () => {
   return (
     <div className=' w-full items-center px-7 py-4  bg-fuchsia-200 '>
         <h1 className='flex items-center justify-center py-4 text-center'>
-            <a className='text-gray-600 py-0.5 px-3 rounded-md hover:scale-105 transition duration-300  border-2 border-white hover:font-semibold bg-transparent text-lg' >About Us</a></h1>
+            <a className='text-gray-600 py-0.5 px-3 rounded-md hover:scale-105 transition duration-500  border-2 border-white hover:font-semibold bg-transparent font-playfair text-lg' >About Us</a></h1>
 
         <div className='md:flex gap-4 py-3 items-center justify-center '>
                  {/*about image*/}

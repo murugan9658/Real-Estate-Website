@@ -24,7 +24,7 @@ function Footer() {
 
                     {/*service */}
                         <div className="space-y-4">
-                            <h1 className=" text-2xl font-semibold text-green-900">Service</h1>
+                            <h1 className=" text-2xl font-semibold font-playfair text-green-900">Service</h1>
                             <ul className="space-y-3 ">
                                 <li>
                                     <RouterLink to={"/property"} className="hover:text-blue-400 transition duration-300">
@@ -51,7 +51,7 @@ function Footer() {
                         </div>
                     {/*Information */}
                        <div className="space-y-4">
-                         <h1 className="text-2xl font-semibold text-green-900">Information</h1>
+                         <h1 className="text-2xl font-semibold font-playfair text-green-900">Information</h1>
                             <ul className="space-y-3">
                                 <li>
                                   <RouterLink to="/" state={{ scrollTo: "about" }}>
@@ -73,7 +73,7 @@ function Footer() {
                        </div>
                     {/*Support */}
                        <div className="space-y-4">
-                        <h1 className="text-2xl font-semibold text-green-900">Support</h1>
+                        <h1 className="text-2xl font-semibold font-playfair text-green-900">Support</h1>
                             <ul className="space-y-3">
                                 <li> 
                                     <a className="hover:text-blue-400 transition duration-300">
@@ -99,7 +99,7 @@ function Footer() {
                        </div>
                    {/*Subscribe */}
                         <div className="space-y-4">
-                          <h1 className="font-semibold text-2xl text-green-900">Subscribe</h1>
+                          <h1 className="font-semibold text-2xl font-playfair text-green-900">Subscribe</h1>
                           <p>To get latest update, offers and subscribe now</p>
                           <input type="email" name="email" 
                           placeholder="Enter Your Email"
@@ -110,7 +110,7 @@ function Footer() {
 
 
                    <div className="flex items-center  bg-gray-300 py-2 justify-center">
-                     <p className="  text-lg md:text-2xl ">&copy; {new Date().getFullYear()}  Retro Real Estate. All rights reserved.</p>
+                     <p className="  text-lg md:text-2xl font-playfair ">&copy; {new Date().getFullYear()}  Retro Real Estate. All rights reserved.</p>
                   </div>
             </div>
         </footer>

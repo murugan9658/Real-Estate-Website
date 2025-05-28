@@ -7,10 +7,10 @@ const Contact = () => {
       {/*contact content */}
         <div className='flex-1  px-10 space-y-5 '>
           <div className='space-y-6  '>
-            <h1 className='text-3xl font-semibold capitalize'>
+            <h1 className='text-3xl font-playfair font-semibold capitalize'>
               let's <span className='underline text-orange-500'>contact</span> with us
             </h1>
-            <p className='text-lg'>
+            <p className='text-lg  '>
                <span className='text-black text-lg'>Retro Real Estate</span>   is the best sit amet, consectetur adipiscing elitgula nunc a diam nunc laoreet penatibus mi odio. Dictum suspendisse semper curabitur libero, ultrices. Velit cursus ultricies lectus quam
             </p>
           </div>
@@ -36,7 +36,7 @@ const Contact = () => {
               </textarea>
               <button 
               type="submit"
-              className='py-1.5 px-3 w-40 hover:bg-blue-400 text-lg transition duration-300 cursor-pointer hover:text-white hover:font-semibold border-2 rounded-lg '
+              className='py-1.5 px-3 w-40 hover:bg-blue-400 text-lg font-playfair transition duration-300 cursor-pointer hover:text-white hover:font-semibold border-2 rounded-lg '
               >submit</button>
             </form>
           </div>
@@ -52,14 +52,14 @@ const Contact = () => {
              />
           </div>
           <div className='flex flex-col space-y-3'>
-            <h1 className='text-3xl text-black font-semibold'>
+            <h1 className='text-3xl font-playfair text-black font-semibold'>
             Contact info
             </h1>
             <p>
             256D, Southern City, Veltex Tower, Main Town
             main road, New York, Usa
             </p>
-            <h2 className='text-blue-600 text-2xl hover:scale-102 transition duration-300'>
+            <h2 className='text-blue-600  text-2xl hover:scale-102 transition duration-300'>
             Call us: 01234 567 890
             </h2>
             <p>

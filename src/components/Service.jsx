@@ -32,7 +32,7 @@ const services =[
 const ServiceSection = () => {
   return (
     <div className='w-full md:h-screen pt-3 pb-4  flex flex-col items-center justify-center space-y-6 md:space-y-16  bg-stone-200'> 
-    <h1 ><a className='text-gray-600 text-2xl  border-2  border-white  py-0.5 px-3 rounded-md hover:scale-105 transition duration-300 inline-block'>Our Management Service</a></h1>
+    <h1 ><a className='text-gray-600 text-2xl font-playfair  border-2  border-white  py-0.5 px-3 rounded-md hover:scale-105 transition duration-300 inline-block'>Our Management Service</a></h1>
 
     <div className='grid md:grid-cols-2 grid-cols-1 max-w-7xl gap-3 md:gap-14'>
       {services.map((item,index) =>(
@@ -44,7 +44,7 @@ const ServiceSection = () => {
         className='md:border-4 border-2 border-white hover:border-white/45 rounded-lg p-3 mx-2.5 flex flex-col items-center space-y-2 md:space-y-4'>
           <div className='flex gap-2 items-center'>
             <h3 className='text-2xl '>{item.icon} </h3> 
-            <h1 className='text-2xl text-amber-900'>{item.title} </h1>
+            <h1 className='text-2xl font-playfair text-amber-900'>{item.title} </h1>
           </div>
           <p className='text-gray-700 text-sm md:text-lg'>{item.desc} </p>
         </motion.div>
