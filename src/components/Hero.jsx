@@ -118,7 +118,7 @@ const HeroSection = () => {
       </motion.div>
 
       {/* Dot loader at bottom */}
-      <div className="absolute bottom-10 z-40 flex justify-center w-full">
+      <div className="absolute bottom-10 z-40 flex mt-2 justify-center w-full">
         <DotLoader />
       </div>
     </section>
