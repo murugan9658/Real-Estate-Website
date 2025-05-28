@@ -12,7 +12,7 @@ const MortgageBenefits = () => {
           <p className='md:text-2xl text-lg'>A mortgage calculator is helpful before or during the home-buying process:</p>
         </div>
         {/* Benefits of Mortgage content */}
-        <div className='w-full flex flex-col space-y-3 px-14 md:px-44 '>
+        <div className='w-full flex flex-col space-y-3 px-4 sm:px-8 md:px-14 lg:px-28 xl:px-44'>
            <div className='flex flex-col space-y-4'>
               <h1 className='md:text-3xl text-2xl font-semibold '>1. Before buying a house</h1>
               <ul className='pl-4 space-y-2 md:text-lg  text-stone-700'>
