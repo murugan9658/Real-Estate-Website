@@ -60,15 +60,15 @@ export const products = [
     beds: 3,
     baths: 1,
     hall: 2,
-    kitchen: ["Mid-Century Style", "Pastel Appliances", "Terrazzo Counters", "Boomerang Pattern"],
+    kitchen: ["keral Style", "Pastel Appliances", "modern aesthetics", "Boomerang Pattern"],
   },
 
   {
     id: 6,
     status: "For Sale",
      image:"/images/sale4.jpg",
-    title: "Atomic Ranch",
-    address: "808 Atomic Avenue, Retroville",
+    title: "American Craftsman",
+    address: "224, Janakiraman Colony, Koyambedu, Chennai, Tamil Nadu 600106",
     price: "₹50,00,000",
     beds: 3,
     baths: 3,
