@@ -54,7 +54,7 @@ const Signup = () => {
 
   return (
     <motion.div
-      className="relative w-full h-screen flex items-center justify-center"
+      className="relative w-full h-screen flex items-center py-4 px-4 justify-center"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -90,7 +90,7 @@ const Signup = () => {
                      <AiOutlineClose />
                  </button>
 
-        <motion.form onSubmit={handleSubmit} className="space-y-4" variants={containerVariants}>
+        <motion.form onSubmit={handleSubmit} className="space-y-4 " variants={containerVariants}>
           <motion.div variants={itemVariants}>
             <label className="block text-white text-lg mb-1">Name</label>
             <input
