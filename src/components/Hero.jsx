@@ -10,6 +10,30 @@ const images = [
   "/images/laptop3.jpg",
 ];
 
+// Animation variants
+const container = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.3,
+      ease: "easeInOut",
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, scale: 0.9, y: 30 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
+
 const HeroSection = () => {
   const [current, setCurrent] = useState(0);
   const location = useLocation();
@@ -25,7 +49,7 @@ const HeroSection = () => {
         offset: -70,
       });
 
-      // Clear only scrollTo from history state
+      // Clear scrollTo from history state
       const newState = { ...(location.state || {}) };
       delete newState.scrollTo;
       window.history.replaceState(newState, document.title);
@@ -39,31 +63,6 @@ const HeroSection = () => {
     }, 4000);
     return () => clearInterval(interval);
   }, []);
-
-  // Framer Motion animations
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        ease: "easeInOut",
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, x: 30 },
-    show: (i) => ({
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.8,
-        delay: i * 0.5,
-        ease: "easeInOut",
-      },
-    }),
-  };
 
   return (
     <section className="relative w-full h-screen shadow-lg overflow-hidden">
@@ -85,22 +84,23 @@ const HeroSection = () => {
       <motion.div
         variants={container}
         initial="hidden"
-        animate="show"
+        animate="visible"
+        // Optionally use scroll-based animation:
+        // whileInView="visible"
+        // viewport={{ once: true, amount: 0.6 }}
         className="relative z-10 flex items-center justify-center h-full text-center"
       >
         <div className="space-y-6 px-5">
           <motion.h1
             variants={item}
-            custom={0}
-            className="md:text-6xl font-playfair text-4xl font-semibold text-white hover:scale-105 transition duration-500"
+            className="md:text-6xl font-playfair text-4xl font-semibold text-white "
           >
             Retro Real Estate Management Pvt Ltd
           </motion.h1>
 
           <motion.p
             variants={item}
-            custom={1}
-            className="md:text-3xl font-dancing text-2xl font-semibold text-white italic transition duration-500 hover:scale-105"
+            className="md:text-3xl font-dancing text-2xl font-semibold text-white italic "
           >
             Discover luxury properties in your favorite locations.
           </motion.p>
@@ -108,8 +108,7 @@ const HeroSection = () => {
           <RouterLink to="/property">
             <motion.button
               variants={item}
-              custom={2}
-              className="py-1 px-4 md:text-2xl text-lg font-playfair text-white border border-white hover:border-black/80 hover:font-semibold transition cursor-pointer duration-300 hover:scale-105 hover:bg-white hover:text-black rounded-lg"
+              className="py-1 px-4 md:text-2xl text-lg font-playfair text-white border border-white hover:border-black/80 hover:font-semibold transition cursor-pointer duration-300  hover:bg-white hover:text-black rounded-lg"
             >
               Explore
             </motion.button>
@@ -117,7 +116,7 @@ const HeroSection = () => {
         </div>
       </motion.div>
 
-      {/* Dot loader at bottom */}
+      {/* Dot loader */}
       <div className="absolute bottom-10 z-40 flex mt-2 justify-center w-full">
         <DotLoader />
       </div>
